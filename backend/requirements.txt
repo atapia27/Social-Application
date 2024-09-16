@@ -1,0 +1,10 @@
+fastapi==0.111.1
+pydantic==2.8.2
+python-dotenv==1.0.1
+python_jose==3.3.0
+SQLAlchemy==2.0.31
+psycopg2==2.9.9
+pytest==8.2.2
+pytest-asyncio==0.23.8
+# Black
+black==24.4.2
