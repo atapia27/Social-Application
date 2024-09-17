@@ -12,10 +12,23 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/Tailwind/Link.jsx",
+    "redux/videos/utils/validateVideoUrl.js",
+    "redux/videos/utils/validateVideoUrl.js"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,0 +1,60 @@
+// components/video/VideoPost/Header.tsx
+
+import React from "react"
+import { FiEdit } from "react-icons/fi"
+import { VideoPostStyle } from "../utils/VideoPostStyles"
+import { ThinRectButtonVariant } from "../../helpers/buttons"
+
+interface HeaderProps {
+  user_id: string
+  currentUserId: string | null
+  handleEditClick: () => void
+  leftPinColor: { base: string; inner: string; border: string }
+  rightPinColor: { base: string; inner: string; border: string }
+  isFullscreen: boolean // Add this prop to handle fullscreen state
+}
+
+const Header: React.FC<HeaderProps> = ({
+  user_id,
+  currentUserId,
+  handleEditClick,
+  leftPinColor,
+  rightPinColor,
+  isFullscreen,
+}) => (
+  <>
+    <div
+      className={
+        isFullscreen ? VideoPostStyle.leftPinFS : VideoPostStyle.leftPin
+      }
+    >
+      <div className={VideoPostStyle.pinBase(leftPinColor)}>
+        <div className={VideoPostStyle.pinInner(leftPinColor)}></div>
+      </div>
+    </div>
+
+    <div
+      className={
+        isFullscreen ? VideoPostStyle.rightPinFS : VideoPostStyle.rightPin
+      }
+    >
+      <div className={VideoPostStyle.pinBase(rightPinColor)}>
+        <div className={VideoPostStyle.pinInner(rightPinColor)}></div>
+      </div>
+    </div>
+
+    <div className="flex items-center gap-4 px-4 py-2">
+      <h3 className={ThinRectButtonVariant.white}>{user_id}</h3>
+      {currentUserId === user_id && (
+        <button
+          className={ThinRectButtonVariant.violet}
+          onClick={handleEditClick}
+        >
+          <FiEdit />
+        </button>
+      )}
+    </div>
+  </>
+)
+
+export default Header
