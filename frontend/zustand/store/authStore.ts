@@ -1,4 +1,4 @@
-// frontend\zustand\store\authStore.ts
+// frontend\zustand\store\authStore.ts 
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import {
@@ -23,16 +23,21 @@ interface AuthState {
   setLoading: (loading: boolean) => void
 }
 
+// Define the default state with 'user_name' logged in
+const defaultState = {
+  user_id: "user_name",
+  icon: "Cat",
+  first_name: "user",
+  last_name: "name",
+  loggedIn: true,
+  loading: false,
+  error: null,
+}
+
 const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
-      user_id: null,
-      icon: null,
-      first_name: null,
-      last_name: null,
-      loggedIn: false,
-      loading: false,
-      error: null,
+      ...defaultState, // Spread the default state here
       login: async (user_id: string) => {
         set({ loading: true, error: null })
         try {
@@ -94,6 +99,9 @@ const useAuthStore = create<AuthState>()(
             // If logout fails, revert the state back to logged-in
             set({
               user_id: user_id,
+              icon: get().icon,
+              first_name: get().first_name,
+              last_name: get().last_name,
               loggedIn: true,
               loading: false,
               error: "Logout failed. Please try again.",
