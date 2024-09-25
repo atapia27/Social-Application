@@ -32,7 +32,7 @@ This project features a fully functional social media app focused on video posts
 ### Frontend
 
 ```bash
-cd edtech-social-app/ && npm run dev
+cd frontend / && npm run dev
 ```
 
 ### Backend
