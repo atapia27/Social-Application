@@ -20,6 +20,8 @@ This project features a fully functional social media app focused on video posts
   - Create video form resembles a chalkboard
   - Video Posts resemble coark boards
   - Comments appear like sticky notes, slightly skewed for character and style
+  - "Pins" hold up the video within the video post
+  - Simple animations added to buttons
   - Notebook paper as the search feature of the application
   - Calculator tool available
 
@@ -36,14 +38,14 @@ This project features a fully functional social media app focused on video posts
 ### Frontend
 
 ```bash
-cd frontend / && npm i
-cd frontend / && npm run dev
+cd frontend/ && npm i
+cd frontend/ && npm run dev
 ```
 
-### Backend
+### Backend (call uvicorn from main folder)
 
 ```bash
-cd backend / && pip install -r requirements.txt
+cd backend/ && pip install -r requirements.txt
 uvicorn backend.main:app --reload
 ```
 

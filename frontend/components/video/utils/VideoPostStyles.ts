@@ -13,9 +13,9 @@ const buttonBase =
 export const VideoPostStyle = {
   // Pin styles
   leftPin: twMerge(pinLocation, "left-1"),
-  leftPinFS: twMerge(pinLocation, "left-[16.25rem]"),
+  leftPinFS: twMerge(pinLocation, "left-[29rem]"),
   rightPin: twMerge(pinLocation, "right-1 rotate-45"),
-  rightPinFS: twMerge(pinLocation, "right-[16.25rem] rotate-45"),
+  rightPinFS: twMerge(pinLocation, "right-[29rem] rotate-45"),
   pinBase: (color: { base: string }) => twMerge(pinBase, color.base),
   pinInner: (color: { inner: string; border: string }) =>
     twMerge(pinInnerBase, color.inner, color.border),
