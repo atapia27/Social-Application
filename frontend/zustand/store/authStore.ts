@@ -23,13 +23,13 @@ interface AuthState {
   setLoading: (loading: boolean) => void
 }
 
-// Define the default state with 'user_name' logged in
+// Allows for instant login when page first loads
 const defaultState = {
-  user_id: "user_name",
-  icon: "Cat",
-  first_name: "user",
-  last_name: "name",
-  loggedIn: true,
+  user_id: null,
+  icon: null,
+  first_name: null,
+  last_name: null,
+  loggedIn: false,
   loading: false,
   error: null,
 }
