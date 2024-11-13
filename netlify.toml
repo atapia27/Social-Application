@@ -8,5 +8,5 @@
 
 [[redirects]]
   from = "/"
-  to = "/register"
+  to = "/login"
   status = 302

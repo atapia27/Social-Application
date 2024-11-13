@@ -2,17 +2,8 @@
 
 import React, { useState, useRef } from "react"
 import ReactPlayer from "react-player"
-import {
-  FiThumbsUp,
-  FiMessageSquare,
-  FiShare,
-  FiMaximize,
-  FiMinimize,
-} from "react-icons/fi"
-import CommentForm from "../../comment/CommentForm"
 import useCommentStore from "../../../zustand/store/commentStore"
 import useVideoStore from "../../../zustand/store/videoStore"
-import { VideoPostStyle } from "../utils/VideoPostStyles"
 import Controls from "./Controls"
 import Header from "./Header"
 import EditForm from "./EditForm"

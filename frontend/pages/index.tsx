@@ -12,9 +12,10 @@ const Home: NextPage = () => {
   const { loggedIn } = useAuthStore()
   const router = useRouter()
 
+  // Keep this instead of protected routes?
   useEffect(() => {
     if (!loggedIn) {
-      router.push("/register")
+      router.push("/login")
     }
   }, [loggedIn, router])
 

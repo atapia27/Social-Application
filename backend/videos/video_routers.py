@@ -95,7 +95,7 @@ async def get_videos(user_id: str):
 
 @router.get("/all-videos")
 async def get_all_videos(db: Session = Depends(get_db)):
-    users = crud.retrieve_users(db)
+    users = crud.retrieve_all_users(db)
     print(f"Retrieved users: {users}")
     user_ids = [user.id for user in users]
     data = await get_all_videos_data(user_ids)

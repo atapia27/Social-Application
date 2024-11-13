@@ -31,7 +31,7 @@ const Navbar: FC = () => {
       {/* Remove Second shadow: [box-shadow:0_10px_0_0_#D97745,0_15px_0_0_#F3A679] */}
       {/* Left-aligned logo */}
       <div className="flex justify-start">
-        <Link href="/" className={RectButtonVariant.violet}>
+        <Link href="" className={RectButtonVariant.violet}>
           <Image
             src="/FULL_LOGO_COLOR.png"
             alt="Logo"
@@ -44,22 +44,23 @@ const Navbar: FC = () => {
       </div>
       {/* Center-aligned main widgets */}
       <div className="mb-3 flex justify-center space-x-6">
-        <Link href="/" className={SquareButtonVariant.blue}>
+        <Link href="" className={SquareButtonVariant.blue}>
           <div className={ButtonLogoText}>
             <FiHome />
           </div>
         </Link>
-        <Link href="/friends" className={SquareButtonVariant.green}>
+      
+        <Link href="" className={SquareButtonVariant.green}>
           <span className={ButtonLogoText}>
             <FiUsers />
           </span>
         </Link>
-        <Link href="/notifications" className={SquareButtonVariant.yellow}>
+        <Link href="" className={SquareButtonVariant.yellow}>
           <span className={ButtonLogoText}>
             <FiBell />
           </span>
         </Link>
-        <Link href="/chat" className={SquareButtonVariant.red}>
+        <Link href="" className={SquareButtonVariant.red}>
           <span className={ButtonLogoText}>
             <FiMessageCircle />
           </span>

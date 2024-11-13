@@ -14,34 +14,14 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   useEffect(() => {
     setMounted(true)
-    if (user_id && !loggedIn) {
-      console.log(
-        "User is not logged in, logging in with stored user_id:",
-        user_id,
-      )
-      login(user_id)
-    }
-  }, [loggedIn, login, user_id])
-
-  useEffect(() => {
-    if (mounted && !loggedIn) {
-      console.log("Not logged in, redirecting to /register")
-      router.push("/register")
-    }
-  }, [mounted, loggedIn, router])
-
-  useEffect(() => {
-    if (mounted && loggedIn) {
-      console.log("Logged in, redirecting to /")
-      router.push("/")
-    } else if (mounted && !loggedIn) {
-      console.log("Not logged in, redirecting to /register")
-      router.push("/register")
+    if (!loggedIn) {
+      console.log("Not logged in, redirecting to login")
+      router.push("/login")
     }
   }, [mounted, loggedIn, router])
 
   if (!mounted || !loggedIn) {
-    return <div>Loading...</div> // Show a loading indicator while checking authentication
+    return <div> Loading... </div> // Show a loading indicator while checking authentication
   }
 
   return <>{children}</>
