@@ -5,7 +5,7 @@ export interface AuthResponse {
   first_name: string
   last_name: string
   icon: string
-  loggedIn: boolean 
+  logged_in: boolean 
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL_AUTH

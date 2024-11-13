@@ -10,7 +10,7 @@ const Register: NextPage = () => {
   const [first_name, setFirstName] = useState("")
   const [last_name, setLastName] = useState("")
   const [icon, setIcon] = useState("")
-  const { register, loggedIn } = useAuthStore()
+  const { register, logged_in } = useAuthStore()
   const router = useRouter()
 
   const icons = [
@@ -34,10 +34,10 @@ const Register: NextPage = () => {
   }
 
   useEffect(() => {
-    if (loggedIn) {
+    if (logged_in) {
       router.push("/") // Redirect to home page upon successful registration and login
     }
-  }, [loggedIn, router])
+  }, [logged_in, router])
 
   return (
     <div className="flex flex-col items-center justify-center p-4">

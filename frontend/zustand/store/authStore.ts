@@ -13,7 +13,7 @@ interface AuthState {
   icon: string | null
   first_name: string | null
   last_name: string | null
-  loggedIn: boolean
+  logged_in: boolean
   loading: boolean
   error: string | null
   login: (user_id: string) => void
@@ -29,7 +29,7 @@ const defaultState = {
   icon: null,
   first_name: null,
   last_name: null,
-  loggedIn: false,
+  logged_in: false,
   loading: false,
   error: null,
 }
@@ -47,7 +47,7 @@ const useAuthStore = create<AuthState>()(
             icon: data.icon,
             first_name: data.first_name,
             last_name: data.last_name,
-            loggedIn: data.loggedIn,
+            logged_in: data.logged_in,
             loading: false,
             error: null,
           })
@@ -69,7 +69,7 @@ const useAuthStore = create<AuthState>()(
             icon: data.icon,
             first_name: data.first_name,
             last_name: data.last_name,
-            loggedIn: data.loggedIn,
+            logged_in: data.logged_in,
             loading: false,
             error: null,
           })
@@ -87,7 +87,7 @@ const useAuthStore = create<AuthState>()(
             icon: null,
             first_name: null,
             last_name: null,
-            loggedIn: false,
+            logged_in: false,
             loading: true, // Show loading state while API call is in progress
             error: null,
           })
@@ -102,7 +102,7 @@ const useAuthStore = create<AuthState>()(
               icon: get().icon,
               first_name: get().first_name,
               last_name: get().last_name,
-              loggedIn: true,
+              logged_in: true,
               loading: false,
               error: "Logout failed. Please try again.",
             })

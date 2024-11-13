@@ -9,17 +9,17 @@ import SearchNotebook from "../components/widgets/SearchNotebook" // New Import
 import Calculator from "../components/widgets/Calculator" // New Import
 
 const Home: NextPage = () => {
-  const { loggedIn } = useAuthStore()
+  const { logged_in } = useAuthStore()
   const router = useRouter()
 
   // Keep this instead of protected routes?
   useEffect(() => {
-    if (!loggedIn) {
+    if (!logged_in) {
       router.push("/login")
     }
-  }, [loggedIn, router])
+  }, [logged_in, router])
 
-  if (!loggedIn) {
+  if (!logged_in) {
     return <div>Loading...</div> // Or any other loading indicator
   }
 

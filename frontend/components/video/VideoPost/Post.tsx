@@ -15,7 +15,7 @@ interface VideoPostProps {
   video_url: string
   title: string
   user_id: string
-  currentUserId: string | null
+  current_user_id: string | null
   leftPinColor: { base: string; inner: string; border: string }
   rightPinColor: { base: string; inner: string; border: string }
 }
@@ -26,7 +26,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
   video_url,
   title,
   user_id,
-  currentUserId,
+  current_user_id,
   leftPinColor,
   rightPinColor,
 }) => {
@@ -81,7 +81,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
     >
       <Header
         user_id={user_id}
-        currentUserId={currentUserId}
+        current_user_id={current_user_id}
         handleEditClick={handleEditClick}
         leftPinColor={leftPinColor}
         rightPinColor={rightPinColor}

@@ -7,7 +7,7 @@ import { ThinRectButtonVariant } from "../../helpers/buttons"
 
 interface HeaderProps {
   user_id: string
-  currentUserId: string | null
+  current_user_id: string | null
   handleEditClick: () => void
   leftPinColor: { base: string; inner: string; border: string }
   rightPinColor: { base: string; inner: string; border: string }
@@ -16,7 +16,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({
   user_id,
-  currentUserId,
+  current_user_id,
   handleEditClick,
   leftPinColor,
   rightPinColor,
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({
 
     <div className="flex items-center gap-4 px-4 py-2">
       <h3 className={ThinRectButtonVariant.white}>{user_id}</h3>
-      {currentUserId === user_id && (
+      {current_user_id === user_id && (
         <button
           className={ThinRectButtonVariant.violet}
           onClick={handleEditClick}

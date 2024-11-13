@@ -8,19 +8,19 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { user_id, loggedIn, login } = useAuthStore()
+  const { user_id, logged_in, login } = useAuthStore()
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    if (!loggedIn) {
+    if (!logged_in) {
       console.log("Not logged in, redirecting to login")
       router.push("/login")
     }
-  }, [mounted, loggedIn, router])
+  }, [mounted, logged_in, router])
 
-  if (!mounted || !loggedIn) {
+  if (!mounted || !logged_in) {
     return <div> Loading... </div> // Show a loading indicator while checking authentication
   }
 

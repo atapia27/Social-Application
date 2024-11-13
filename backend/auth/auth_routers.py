@@ -24,7 +24,7 @@ async def post_user(user: schemas.CreateUser, db: Session = Depends(get_db)):
                 "first_name": new_user.first_name,
                 "last_name": new_user.last_name,
                 "icon": new_user.icon,
-                "loggedIn": new_user.logged_in,
+                "logged_in": new_user.logged_in,
             }
         )
         return response
@@ -65,7 +65,7 @@ async def login_user(
                 "first_name": db_user.first_name,
                 "last_name": db_user.last_name,
                 "icon": db_user.icon,
-                "loggedIn": db_user.logged_in,
+                "logged_in": db_user.logged_in,
             }
         )
 

@@ -16,7 +16,7 @@ const VideoFeed: React.FC = () => {
     fetchAllVideos: state.fetchAllVideos,
   }))
 
-  const { user_id: currentUserId } = useAuthStore() // Get the current user ID
+  const { user_id: current_user_id } = useAuthStore() // Get the current user ID
   const [videoIndices, setVideoIndices] = useState<{ [key: string]: number }>(
     {},
   )
@@ -80,7 +80,7 @@ const VideoFeed: React.FC = () => {
               user_id={video.user_id}
               leftPinColor={leftPinColor}
               rightPinColor={rightPinColor}
-              currentUserId={currentUserId} // Pass currentUserId to VideoPost
+              current_user_id={current_user_id} // Pass current_user_id to VideoPost
             />
           )
         })}

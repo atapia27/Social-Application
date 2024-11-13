@@ -12,7 +12,7 @@ import {
 } from "./helpers/buttons"
 
 const Navbar: FC = () => {
-  const { user_id, icon, loggedIn, logout } = useAuthStore()
+  const { user_id, icon, logged_in, logout } = useAuthStore()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const Navbar: FC = () => {
       </div>
       {/* Right-aligned user profile or login/logout buttons */}
       <div className="flex items-center justify-end gap-3 pr-2 text-sm">
-        {loggedIn ? (
+        {logged_in ? (
           <>
             <div className={RectButtonVariant.white}>
               <Link href="/" className="flex items-center gap-3">

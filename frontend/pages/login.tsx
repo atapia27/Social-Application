@@ -6,7 +6,7 @@ import { useRouter } from "next/router"
 import useAuthStore from "../zustand/store/authStore"
 
 const Login: NextPage = () => {
-  const [user_id, setUserId] = useState("")
+  const [user_id, set_user_id] = useState("")
   const { login } = useAuthStore()
   const router = useRouter()
 
@@ -38,7 +38,7 @@ const Login: NextPage = () => {
             id="user_id"
             placeholder="user_name"
             value={user_id}
-            onChange={(e) => setUserId(e.target.value)}
+            onChange={(e) => set_user_id(e.target.value)}
             className="placeholder-gray-400 mt-1 text-sm block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
             required
           />
