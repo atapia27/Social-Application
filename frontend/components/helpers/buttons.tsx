@@ -6,7 +6,7 @@ import { ButtonAnimations } from "./animations"
 //////////////////////////////////////// SQUARE BUTTONS ////////////////////////////////////////
 
 const SqButtonBase =
-  "flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px] transition-all duration-150"
+  "flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px] "
 
 // Color variants
 const ColorVariantSquare = {
@@ -29,10 +29,10 @@ const SquareButton = twMerge(SqButtonBase, ButtonAnimations.push)
 //////////////////////////////////////// RECTANGULAR BUTTONS ////////////////////////////////////////
 
 const RectButtonBase =
-  "px-3 mb-3 flex h-10 w-fit cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px] transition-all duration-150"
+  "px-3 mb-3 flex h-10 w-fit cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px]  "
 
 const ThinRectButtonBase =
-  "px-3 mb-4 flex h-8 w-fit cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px] transition-all duration-150"
+  "px-3 mb-4 flex h-8 w-fit cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px]  "
 
 const RectButton = twMerge(RectButtonBase, ButtonAnimations.push)
 
@@ -40,7 +40,7 @@ const ThinRectButton = twMerge(ThinRectButtonBase, ButtonAnimations.push)
 //////////////////////////////////////// CIRCULAR BUTTONS ////////////////////////////////////////
 
 const CircularButtonBase =
-  "flex h-12 w-12 cursor-pointer select-none items-center justify-center rounded-full border-[1px] transition-all duration-150 ease-in-out text-white hover:scale-110"
+  "flex h-12 w-12 cursor-pointer select-none items-center justify-center rounded-full border-[1px] transition-all  ease-in-out text-white hover:scale-110"
 
 const ColorVariantCircular = {
   orange:
@@ -64,7 +64,8 @@ export const SquareButtonVariant = {
 
 export const RectButtonVariant = {
   violet: twMerge(ColorVariantSquare.violet, RectButton),
-  white: twMerge(ColorVariantSquare.white, RectButton),
+  white: twMerge(ColorVariantSquare.white, RectButton), // border-gray-300 bg-white [box-shadow:0_10px_0_0_#d1d5db,0_15px_0_0_rgba(0,0,0,0.1)] active:[box-shadow:0_0px_0_0_#d1d5db,0_0px_0_0_#e5e7eb] px-3 mb-3 flex h-10 w-fit cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px] active:translate-y-2 active:border-b-[0px]
+
 }
 
 export const ThinRectButtonVariant = {

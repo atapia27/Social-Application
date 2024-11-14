@@ -5,6 +5,8 @@ import { FiMaximize, FiMinimize } from "react-icons/fi"
 import { FaVolumeUp } from "react-icons/fa"
 import { RiSpeedLine } from "react-icons/ri"
 
+const controlStyle = "text-gray-700 text-2xl border-4 rounded-sm bg-white"
+
 interface ControlsProps {
   isFullscreen: boolean
   handleFullscreenToggle: () => void
@@ -35,13 +37,11 @@ const Controls: React.FC<ControlsProps> = ({
   <div className="mx-2 mt-2 flex items-center justify-between">
     <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
     <div className="flex items-center gap-4">
-      <button className="text-gray-700" onClick={handleFullscreenToggle}>
-        {isFullscreen ? <FiMinimize /> : <FiMaximize />}
-      </button>
+
 
       <button
         onClick={() => setShowVolume(!showVolume)}
-        className="text-gray-700"
+        className={controlStyle}
       >
         <FaVolumeUp />
       </button>
@@ -59,7 +59,7 @@ const Controls: React.FC<ControlsProps> = ({
 
       <button
         onClick={() => setShowSpeed(!showSpeed)}
-        className="text-gray-700"
+        className={controlStyle}
       >
         <RiSpeedLine />
       </button>
@@ -75,6 +75,10 @@ const Controls: React.FC<ControlsProps> = ({
           <option value={2}>2x</option>
         </select>
       )}
+      
+      <button className={controlStyle} onClick={handleFullscreenToggle}>
+      {isFullscreen ? <FiMinimize /> : <FiMaximize />}
+      </button>
     </div>
   </div>
 )

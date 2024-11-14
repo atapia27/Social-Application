@@ -75,7 +75,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
       className="relative mx-auto border-8 border-[#8B4513] bg-[#D2B48C]"
       style={{
         height: isFullscreen ? "100vh" : "100%",
-        width: isFullscreen ? "100vw" : "45%",
+        width: isFullscreen ? "100vw" : "60%",
         overflow: isFullscreen ? "none" : "none",
       }}
     >
