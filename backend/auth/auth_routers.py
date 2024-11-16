@@ -44,9 +44,7 @@ async def post_user(user: schemas.CreateUser, db: Session = Depends(get_db)):
 
 
 @router.post("/login")
-async def login_user(
-    login_request: schemas.LoginRequest, db: Session = Depends(get_db)
-):
+async def login_user(login_request: schemas.LoginRequest, db: Session = Depends(get_db)):
     try:
         user_id = login_request.user_id
         db_user = crud.retrieve_user_by_id(db, user_id=user_id)
@@ -86,9 +84,7 @@ async def login_user(
 
 
 @router.post("/logout")
-async def logout_user(
-    login_request: schemas.LoginRequest, db: Session = Depends(get_db)
-):
+async def logout_user(login_request: schemas.LoginRequest, db: Session = Depends(get_db)):
     try:
         user_id = login_request.user_id
         db_user = crud.retrieve_user_by_id(db, user_id=user_id)

@@ -47,7 +47,7 @@ const Navbar: FC = () => {
 
       <nav className="min-w-screen sticky top-0 z-50 grid h-16 grid-cols-3 items-center border-b-[1px] border-[#D97745] bg-[#FD9B63] px-4 [box-shadow:0_10px_0_0_#D97745]">
         {/* Left-aligned logo */}
-        <div className="flex justify-start">
+        <div className="left-0 flex justify-start">
           <Link href="" className={RectButtonVariant.violet}>
             <Image
               src="/FULL_LOGO_COLOR.png"
@@ -99,13 +99,13 @@ const Navbar: FC = () => {
                   <span>{user_id}</span>
                 </Link>
               </div>
-                <button
-                  onClick={handleLogout}
-                  className={RectButtonVariant.white}
-                  disabled={loading || isLogoutClicked}
-                >
-                  Logout
-                </button>
+              <button
+                onClick={handleLogout}
+                className={RectButtonVariant.white}
+                disabled={loading || isLogoutClicked}
+              >
+                Logout
+              </button>
             </>
           ) : (
             <>

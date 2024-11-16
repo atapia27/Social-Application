@@ -8,7 +8,7 @@ interface LoadingModalProps {
 const LoadingModal: FC<LoadingModalProps> = ({ message }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
-      <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg">
+      <div className="flex flex-col items-center rounded-lg bg-white p-6 shadow-lg">
         <div className="loader mb-4" />
         <p>{message}</p>
       </div>

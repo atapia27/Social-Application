@@ -19,9 +19,8 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",
     "https://social-app-y6hc.onrender.com",  # render URL here
-    "https://social-app-y6hc:8000",
-    "http://social-app-y6hc:8000",
     "https://social-app-video-atapia.netlify.app",  # Add Netlify URL 
+    
 ]
 
 app.add_middleware(

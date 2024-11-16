@@ -37,8 +37,6 @@ const Controls: React.FC<ControlsProps> = ({
   <div className="mx-2 mt-2 flex items-center justify-between">
     <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
     <div className="flex items-center gap-4">
-
-
       <button
         onClick={() => setShowVolume(!showVolume)}
         className={controlStyle}
@@ -57,10 +55,7 @@ const Controls: React.FC<ControlsProps> = ({
         />
       )}
 
-      <button
-        onClick={() => setShowSpeed(!showSpeed)}
-        className={controlStyle}
-      >
+      <button onClick={() => setShowSpeed(!showSpeed)} className={controlStyle}>
         <RiSpeedLine />
       </button>
       {showSpeed && (
@@ -75,9 +70,9 @@ const Controls: React.FC<ControlsProps> = ({
           <option value={2}>2x</option>
         </select>
       )}
-      
+
       <button className={controlStyle} onClick={handleFullscreenToggle}>
-      {isFullscreen ? <FiMinimize /> : <FiMaximize />}
+        {isFullscreen ? <FiMinimize /> : <FiMaximize />}
       </button>
     </div>
   </div>

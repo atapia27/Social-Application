@@ -30,12 +30,10 @@ const Home: NextPage = () => {
       style={{ backgroundImage: "url('/style/Classroom.png')" }}
     >
       <main className="relative mx-auto max-w-7xl rounded-lg bg-transparent p-4">
-
         {/* VideoFeed (Centered on the page) */}
-        <div className="flex justify-center z-10">
+        <div className="z-10 flex justify-center">
           <VideoFeed />
         </div>
-
       </main>
     </div>
   )

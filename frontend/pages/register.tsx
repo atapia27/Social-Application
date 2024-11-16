@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 import useAuthStore from "../zustand/store/authStore"
 import Image from "next/image"
-import LoadingModal from "../components/loading/LoadingModal" 
+import LoadingModal from "../components/loading/LoadingModal"
 
 const Register: NextPage = () => {
   const [first_name, setFirstName] = useState("")
@@ -90,7 +90,9 @@ const Register: NextPage = () => {
                 key={iconOption.name}
                 type="button"
                 className={`flex flex-col items-center border-2 p-2 ${
-                  icon === iconOption.name ? "border-blue-500" : "border-gray-200"
+                  icon === iconOption.name
+                    ? "border-blue-500"
+                    : "border-gray-200"
                 } transform cursor-pointer rounded-lg transition duration-200 hover:border-gray-400`}
                 onClick={() => setIcon(iconOption.name)}
                 onKeyDown={(e) => {
@@ -105,7 +107,9 @@ const Register: NextPage = () => {
                   width={48}
                   height={48}
                 />
-                <span className="mt-1 text-center text-xs">{iconOption.name}</span>
+                <span className="mt-1 text-center text-xs">
+                  {iconOption.name}
+                </span>
               </button>
             ))}
           </div>

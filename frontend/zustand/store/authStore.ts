@@ -1,4 +1,4 @@
-// frontend/zustand/store/authStore.ts 
+// frontend/zustand/store/authStore.ts
 
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
@@ -21,8 +21,8 @@ interface AuthState {
   register: (first_name: string, last_name: string, icon: string) => void
   logout: () => void
   resetState: () => void // Add a method to reset state
-  setError : (error: string) => void
-  setLoading : (loading: boolean) => void
+  setError: (error: string) => void
+  setLoading: (loading: boolean) => void
 }
 
 // Allows for instant login when page first loads
@@ -42,8 +42,8 @@ const useAuthStore = create<AuthState>()(
       ...defaultState, // Spread the default state here
       login: async (user_id: string) => {
         set({ loading: true, error: null })
-        const minimumLoadingTime = new Promise<void>((resolve) =>
-          setTimeout(resolve, 1500) // Ensure loading state lasts for at least 1.5 seconds
+        const minimumLoadingTime = new Promise<void>(
+          (resolve) => setTimeout(resolve, 1500), // Ensure loading state lasts for at least 1.5 seconds
         )
         try {
           const data: AuthResponse = await loginUserAPI(user_id)
@@ -65,8 +65,8 @@ const useAuthStore = create<AuthState>()(
       },
       register: async (first_name: string, last_name: string, icon: string) => {
         set({ loading: true, error: null })
-        const minimumLoadingTime = new Promise<void>((resolve) =>
-          setTimeout(resolve, 1500) // Ensure loading state lasts for at least 1.5 seconds
+        const minimumLoadingTime = new Promise<void>(
+          (resolve) => setTimeout(resolve, 1500), // Ensure loading state lasts for at least 1.5 seconds
         )
         try {
           const data: AuthResponse = await registerUserAPI(
@@ -95,8 +95,8 @@ const useAuthStore = create<AuthState>()(
         if (user_id) {
           set({ loading: true, error: null })
 
-          const minimumLoadingTime = new Promise<void>((resolve) =>
-            setTimeout(resolve, 1500) // Ensure loading state lasts for at least 1.5 seconds
+          const minimumLoadingTime = new Promise<void>(
+            (resolve) => setTimeout(resolve, 1500), // Ensure loading state lasts for at least 1.5 seconds
           )
 
           try {
@@ -127,7 +127,6 @@ const useAuthStore = create<AuthState>()(
       },
       setError: (error) => set({ error }),
       setLoading: (loading) => set({ loading }),
-      
     }),
     {
       name: "auth-storage",

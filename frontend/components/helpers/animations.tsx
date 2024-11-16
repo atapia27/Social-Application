@@ -12,8 +12,7 @@ export const PanelAnimations = {
 }
 
 // Define transition and transform animations
-export const PanelTransitions =
-  "transform transition-all ease-in-out"
+export const PanelTransitions = "transform transition-all ease-in-out"
 
 // Animation for expanding and collapsing the form
 export const FormPanelAnimations = {
