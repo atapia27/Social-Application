@@ -10,10 +10,10 @@ const inputBase =
 const decorativeBase = "absolute bottom-0"
 
 export const FormStyle = {
-  formText: "mb-1 block text-sm font-medium text-gray-100",
+  formText: "mb-1 block text-sm font-medium text-gray-100 ",
   // Form container and grid
   formContainer:
-    "relative mb-6 rounded-lg border-8 border-[#8B4513] bg-green-700 px-6 py-4 pt-6 text-white shadow-lg",
+    "relative mb-6 rounded-lg border-8 border-[#8B4513] bg-green-700 p-6 pb-10 sm:p-6 text-white shadow-lg",
   formGrid: "mb-4 grid grid-cols-1 gap-4 md:grid-cols-2",
 
   // Button base and variants using the buttonBase

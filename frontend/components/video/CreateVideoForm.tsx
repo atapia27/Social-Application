@@ -44,16 +44,15 @@ const CreateVideoForm: React.FC = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="flex flex-col  ">
       <div
         className={twMerge(
-          "relative overflow-hidden",
+          "relative overflow-hidden ",
           FormTransitions,
           isExpanded
             ? FormPanelAnimations.expanded
             : FormPanelAnimations.collapsed,
         )}
-        style={{ width: isExpanded ? "55%" : "0%" }}
       >
         <form onSubmit={handleSubmit} className={FormStyle.formContainer}>
           <div className={FormStyle.formGrid}>
@@ -113,22 +112,13 @@ const CreateVideoForm: React.FC = () => {
           </div>
           <div className={FormStyle.chalk}></div>
           <div className={FormStyle.ruler}></div>
-          <div
-            className={FormStyle.triangularRuler}
-            style={{ clipPath: "polygon(0% 100%, 100% 100%, 0% 0%)" }}
-          ></div>
-          <div
-            className={FormStyle.greenTriangularHole}
-            style={{ clipPath: "polygon(0% 100%, 100% 100%, 0% 0%)" }}
-          ></div>
-          <div className={FormStyle.chalkEraser}></div>
-          <div className={FormStyle.chalkEraserShadow}></div>
+
         </form>
       </div>
 
       {!isExpanded && (
         <div
-          className={twMerge(CircularButtonVariant.blue, "mb-6")}
+          className={twMerge(CircularButtonVariant.blue, " mb-6 max-w-[25vw] sm:max-w-[15vw] py-1  place-self-center")}
           onClick={() => setIsExpanded(true)}
         >
           <FaWandMagicSparkles className="text-2xl" />

@@ -31,7 +31,7 @@ const Home: NextPage = () => {
     >
       <main className="relative mx-auto max-w-7xl rounded-lg bg-transparent p-4">
         {/* VideoFeed (Centered on the page) */}
-        <div className="z-10 flex justify-center">
+        <div className="z-10 flex justify-center ">
           <VideoFeed />
         </div>
       </main>

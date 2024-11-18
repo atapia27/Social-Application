@@ -16,7 +16,7 @@ export const PanelTransitions = "transform transition-all ease-in-out"
 
 // Animation for expanding and collapsing the form
 export const FormPanelAnimations = {
-  expanded: "max-h-[500px] opacity-100",
+  expanded: "w-[80vw] sm:w-[40vw] opacity-100 place-self-center",
   collapsed: "max-h-0 opacity-0",
 }
 

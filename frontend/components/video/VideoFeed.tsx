@@ -65,9 +65,9 @@ const VideoFeed: React.FC = () => {
   const loadMoreVideos = () => setVisibleCount((prevCount) => prevCount + 3)
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto  ">
       <CreateVideoForm />
-      <div className="grid gap-8 xl:grid-cols-1">
+      <div className=" flex flex-col gap-8 ">
         {videos.slice(0, visibleCount).map((video) => {
           const { leftPinColor, rightPinColor } = memoizedColors[video.id]
           return (
