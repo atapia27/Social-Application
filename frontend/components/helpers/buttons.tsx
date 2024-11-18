@@ -22,17 +22,14 @@ const ButtonBases = {
 //////////////////////////////////////// COLOR VARIANTS ////////////////////////////////////////
 
 // Helper function for box shadows with custom active shadow for white button
-const boxShadowStyles = (color: string, shade: string, activeShade?: string) => 
-  `[box-shadow:0_10px_0_0_${color},0_15px_0_0_${shade}] active:[box-shadow:0_0px_0_0_${color},0_0px_0_0_${activeShade || shade}]`
-
 const colorVariants = {
-  blue: `border-blue-400 bg-blue-500 ${boxShadowStyles('#1b6ff8', '#1b70f841')}`,
-  green: `border-green-400 bg-green-500 ${boxShadowStyles('#15803d', '#16a34a41')}`,
-  yellow: `border-yellow-400 bg-yellow-500 ${boxShadowStyles('#d97706', '#f59e0b41')}`,
-  red: `border-red-400 bg-red-500 ${boxShadowStyles('#b91c1c', '#dc262641')}`,
-  violet: `border-violet-400 bg-violet-500 ${boxShadowStyles('#7c3aed', '#8b5cf641')}`,
-  white: `border-gray-300 bg-white ${boxShadowStyles('#d1d5db', 'rgba(0,0,0,0.05)', '#e5e7eb')}`,
-  orange: `border-orange-400 bg-orange-500 ${boxShadowStyles('#dd6b20', '#dd6b2041')}`,
+  blue: "border-blue-400 bg-blue-500 [box-shadow:0_10px_0_0_#1b6ff8,0_15px_0_0_#1b70f841] active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]",
+  green: "border-green-400 bg-green-500 [box-shadow:0_10px_0_0_#15803d,0_15px_0_0_#16a34a41] active:[box-shadow:0_0px_0_0_#15803d,0_0px_0_0_#16a34a41]",
+  yellow: "border-yellow-400 bg-yellow-500 [box-shadow:0_10px_0_0_#d97706,0_15px_0_0_#f59e0b41] active:[box-shadow:0_0px_0_0_#d97706,0_0px_0_0_#f59e0b41]",
+  red: "border-red-400 bg-red-500 [box-shadow:0_10px_0_0_#b91c1c,0_15px_0_0_#dc262641] active:[box-shadow:0_0px_0_0_#b91c1c,0_0px_0_0_#dc262641]",
+  violet: "border-violet-400 bg-violet-500 [box-shadow:0_10px_0_0_#7c3aed,0_15px_0_0_#8b5cf641] active:[box-shadow:0_0px_0_0_#7c3aed,0_0px_0_0_#8b5cf641]",
+  white: "border-gray-300 bg-white [box-shadow:0_10px_0_0_#d1d5db,0_15px_0_0_rgba(0,0,0,0.05)] active:[box-shadow:0_0px_0_0_#d1d5db,0_0px_0_0_#e5e7eb]",
+  orange: "border-orange-400 bg-orange-500 [box-shadow:0_10px_0_0_#dd6b20,0_15px_0_0_#dd6b2041] active:[box-shadow:0_0px_0_0_#dd6b20,0_0px_0_0_#dd6b2041]",
 }
 
 //////////////////////////////////////// BUTTON VARIANTS ////////////////////////////////////////
