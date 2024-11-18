@@ -8,7 +8,7 @@ import { ButtonAnimations } from "./animations"
 const buttonBaseStyles = {
   square: "flex h-full w-full sm:w-auto sm:aspect-square cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px]",
   rect: "flex h-full w-full cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px]",
-  thinRect: "flex w-full cursor-pointer select-none items-center justify-center rounded-lg border-b-[1px]",
+  thinRect: "flex w-full sm:w-2/5 truncate cursor-pointer select-none items-center justify-center pl-1 rounded-lg border-b-[1px]",
   circular: "flex w-full cursor-pointer select-none items-center justify-center rounded-full border-[1px] transition-all ease-in-out text-white hover:scale-110",
 }
 

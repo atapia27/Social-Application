@@ -21,8 +21,8 @@ const Header: React.FC<HeaderProps> = ({
   leftPinColor,
   rightPinColor,
   isFullscreen,
-}) => (
-  <>
+}) => { return (
+  <div>
     <div
       className={
         isFullscreen ? VideoPostStyle.leftPinFS : VideoPostStyle.leftPin
@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({
       </div>
     </div>
 
-    <div className="flex items-center gap-4 px-4 py-2">
+    <div className="flex justify-between gap-2 px-4 pb-6 pt-2 w-full">
       <h3 className={ThinRectButtonVariant.white}>{user_id}</h3>
       {current_user_id === user_id && (
         <button
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
         </button>
       )}
     </div>
-  </>
-)
+    </div>
+)}
 
 export default Header

@@ -34,7 +34,7 @@ const CommentsDisplay: React.FC<CommentsDisplayProps> = ({
 
   return (
     <div
-      className={`mt-4 pt-4 ${isFullscreen ? "max-h-32" : "max-h-96"} custom-scrollbar overflow-y-auto overflow-x-hidden`}
+      className={`mt-4 pt-4 ${isFullscreen ? "max-h-[30vh] sm:max-h-[10vh]" : "max-h-[30vh]"} custom-scrollbar overflow-y-auto overflow-x-hidden`}
     >
       {videoComments.comments.map((comment, index) => (
         <div

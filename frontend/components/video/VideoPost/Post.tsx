@@ -72,12 +72,9 @@ const VideoPost: React.FC<VideoPostProps> = ({
   return (
     <div
       ref={playerContainerRef}
-      className="relative mx-auto border-8 border-[#8B4513] bg-[#D2B48C]"
-      style={{
-        height: isFullscreen ? "100vh" : "100%",
-        width: isFullscreen ? "100vw" : "60%",
-        overflow: isFullscreen ? "none" : "none",
-      }}
+      className={`relative place-self-center border-8 border-[#8B4513] bg-[#D2B48C] ${
+        isFullscreen ? 'w-screen h-screen' : 'sm:w-3/5 w-6/7 h-full'
+      }`}
     >
       <Header
         user_id={user_id}
@@ -100,7 +97,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
         ) : (
           <>
             <div
-              className={`relative ${isFullscreen ? "mx-auto aspect-video h-[50vh]" : "mx-auto aspect-video"}`}
+              className={`relative ${isFullscreen ? "mx-auto aspect-video w-[85vw] sm:w-auto sm:h-[50vh] " : "mx-auto aspect-video "}`}
             >
               <ReactPlayer
                 ref={playerRef}
@@ -123,12 +120,11 @@ const VideoPost: React.FC<VideoPostProps> = ({
               setPlaybackRate={setPlaybackRate}
               showSpeed={showSpeed}
               setShowSpeed={setShowSpeed}
-              title={title}
             />
-
-            <p className="mx-2 mt-2 border-b border-gray-500 text-xs font-medium text-gray-800">
+          <h2 className=" place-self-center text-center font-semibold text-gray-900 sm:w-2/5 ">{title}</h2>
+          <p className="w-full pb-1 place-self-center text-center mx-2 mt-2 border-b border-gray-500 text-xs font-medium text-gray-800">
               {description}
-            </p>
+          </p>
 
             <Interactions
               video_id={video_id}

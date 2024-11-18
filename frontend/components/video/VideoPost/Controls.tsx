@@ -18,7 +18,6 @@ interface ControlsProps {
   setPlaybackRate: (rate: number) => void
   showSpeed: boolean
   setShowSpeed: (show: boolean) => void
-  title: string
 }
 
 const Controls: React.FC<ControlsProps> = ({
@@ -32,17 +31,30 @@ const Controls: React.FC<ControlsProps> = ({
   setPlaybackRate,
   showSpeed,
   setShowSpeed,
-  title,
 }) => (
-  <div className="mx-2 mt-2 flex items-center justify-between">
-    <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
-    <div className="flex items-center gap-4">
+  <div className="py-2 flex items-center justify-between">
+    <div className="grid grid-cols-3 w-full justify-items-center ">
       <button
         onClick={() => setShowVolume(!showVolume)}
         className={controlStyle}
       >
         <FaVolumeUp />
+
+
       </button>
+
+
+      <button onClick={() => setShowSpeed(!showSpeed)} className={controlStyle}>
+        <RiSpeedLine />
+
+      </button>
+
+
+      <button className={controlStyle} onClick={handleFullscreenToggle}>
+        {isFullscreen ? <FiMinimize /> : <FiMaximize />}
+      </button>
+
+      <div>
       {showVolume && (
         <input
           type="range"
@@ -51,18 +63,17 @@ const Controls: React.FC<ControlsProps> = ({
           step="0.1"
           value={volume}
           onChange={(e) => setVolume(parseFloat(e.target.value))}
-          className="w-32"
+          className="w-full mt-1"
         />
       )}
+      </div>
 
-      <button onClick={() => setShowSpeed(!showSpeed)} className={controlStyle}>
-        <RiSpeedLine />
-      </button>
+      <div>
       {showSpeed && (
         <select
           value={playbackRate}
           onChange={(e) => setPlaybackRate(parseFloat(e.target.value))}
-          className="border p-1"
+          className="w-full mt-1"
         >
           <option value={0.5}>0.5x</option>
           <option value={1}>1x</option>
@@ -70,10 +81,7 @@ const Controls: React.FC<ControlsProps> = ({
           <option value={2}>2x</option>
         </select>
       )}
-
-      <button className={controlStyle} onClick={handleFullscreenToggle}>
-        {isFullscreen ? <FiMinimize /> : <FiMaximize />}
-      </button>
+      </div>
     </div>
   </div>
 )

@@ -20,27 +20,24 @@ const Interactions: React.FC<InteractionsProps> = ({
 }) => {
   return (
     <div
-      className={`${isFullscreen ? "fixed bottom-0 left-0 right-0 p-4" : " max-w-[40vw]"}`}
+      className={`${isFullscreen ? " " : " "}`}
     >
       {showCommentForm && (
         <CommentForm video_id={video_id} isFullscreen={isFullscreen} />
       )}
 
-      <div className=" mb-4 mt-4 flex items-center justify-between pt-4">
+      <div className=" pb-4 pt-4 flex justify-between align-bottom">
         <button className={VideoPostStyle.likeButton}>
-          <FiThumbsUp className="mr-2" />
-          Like
+          <FiThumbsUp />
         </button>
         <button
           className={VideoPostStyle.commentButton}
           onClick={toggleCommentForm}
         >
-          <FiMessageSquare className="mr-2" />
-          Comments
+          <FiMessageSquare/>
         </button>
         <button className={VideoPostStyle.shareButton}>
-          <FiShare className="mr-2" />
-          Share
+          <FiShare />
         </button>
       </div>
     </div>

@@ -39,7 +39,7 @@ const CommentForm: React.FC<Props> = ({ video_id, isFullscreen }) => {
       {/* Include CommentsDisplay above the form */}
       <form
         onSubmit={handleSubmit}
-        className="mx-4 mt-4 flex items-center gap-2"
+        className=" mt-4 flex items-center gap-2"
       >
         <textarea
           value={content}

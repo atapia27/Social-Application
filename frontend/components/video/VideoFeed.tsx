@@ -65,7 +65,7 @@ const VideoFeed: React.FC = () => {
   const loadMoreVideos = () => setVisibleCount((prevCount) => prevCount + 3)
 
   return (
-    <div className="container mx-auto  ">
+    <div className="container mx-auto">
       <CreateVideoForm />
       <div className=" flex flex-col gap-8 ">
         {videos.slice(0, visibleCount).map((video) => {
