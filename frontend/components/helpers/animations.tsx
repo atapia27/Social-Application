@@ -1,7 +1,7 @@
 // frontend\components\helpers\animations.tsx
 
 export const ButtonAnimations = {
-  push: "transition-transform duration-0 active:transform active:translate-y-1 active:border-b-[0px] relative",
+  push: "transition-transform duration-0 active:transform active:translate-y-[.1rem] active:border-b-[0px] relative",
 }
 
 // Define open and closed animations for left-side sliding panel

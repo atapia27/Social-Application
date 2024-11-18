@@ -18,6 +18,9 @@ const Navbar: FC = () => {
   const [mounted, setMounted] = useState(false)
   const [isLogoutClicked, setIsLogoutClicked] = useState(false) // Local state to prevent multiple clicks
   const router = useRouter()
+  const LeftButtonsStyling = twMerge(RectButtonVariant.violet, "w-4/5 sm:w-2/5")
+  const RightButtonsStyling = twMerge(RectButtonVariant.white, " h-full w-full text-xs sm:text-sm px-1 sm:justify-items-center sm:gap-1")
+
 
   useEffect(() => {
     setMounted(true)
@@ -45,28 +48,26 @@ const Navbar: FC = () => {
       {/* Loading Modal - show only when logging out */}
       {loading && isLogoutClicked && <LoadingModal message="Logging out..." />}
 
-      <nav className="min-w-screen sticky top-0 z-50 grid h-16 grid-cols-3 items-center border-b-[1px] border-[#D97745] bg-[#FD9B63] px-4 [box-shadow:0_10px_0_0_#D97745]">
-        {/* Left-aligned logo */}
-        <div className="left-0 flex justify-start">
-          <Link href="" className={RectButtonVariant.violet}>
+      <nav className=" w-screen pt-4 pb-4 grid grid-flow-col  grid-cols-3 justify-between  sticky top-0 z-50  h-16  items-center border-b-[1px] border-[#D97745] bg-[#FD9B63] [box-shadow:0_10px_0_0_#D97745]">
+        {/* logo button  */}
+        <div className="flex h-full w-full  pl-2 sm:pl-6 justify-start ">
+          <Link href="" className={LeftButtonsStyling}>
             <Image
               src="/FULL_LOGO_COLOR.png"
               alt="Logo"
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="min-w-32"
+              width={100}
+              height={100}
+              className="flex px-1 sm:px-2"
             />
           </Link>
         </div>
-        {/* Center-aligned main widgets */}
-        <div className="mb-3 flex justify-center space-x-6">
+        {/* center widgets (4) */}
+        <div className="flex h-full w-full justify-between gap-1 sm:justify-center sm:gap-6 ">
           <Link href="/" className={SquareButtonVariant.blue}>
             <div className={ButtonLogoText}>
               <FiHome />
             </div>
           </Link>
-
           <Link href="" className={SquareButtonVariant.green}>
             <span className={ButtonLogoText}>
               <FiUsers />
@@ -83,40 +84,43 @@ const Navbar: FC = () => {
             </span>
           </Link>
         </div>
-        {/* Right-aligned user profile or login/logout buttons */}
-        <div className="flex items-center justify-end gap-3 pr-2 text-sm">
-          {logged_in ? (
-            <>
-              <div className={RectButtonVariant.white}>
-                <Link href="" className="flex items-center gap-3">
-                  <Image
-                    src={icon ? `/icons/${icon}.png` : "/defaultIcon.png"}
-                    alt="Profile"
-                    width={32}
-                    height={32}
-                    className="min-h-[80%]"
-                  />
-                  <span>{user_id}</span>
-                </Link>
-              </div>
-              <button
-                onClick={handleLogout}
-                className={RectButtonVariant.white}
-                disabled={loading || isLogoutClicked}
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link href="/login" className={RectButtonVariant.white}>
-                Login
-              </Link>
+        {/* username display + logout OR register + logout buttons */}
+        <div className="flex h-full w-full pr-2 sm:pr-6 justify-end">
 
-              <Link href="/register" className={RectButtonVariant.white}>
-                Register
-              </Link>
-            </>
+          {logged_in ? (
+                <div className="flex h-full min-w-[80%] gap-2 justify-end sm:min-w-[40%]">
+                  {/* 1 button */}
+                    <div className={RightButtonsStyling}>
+                      <Image
+                        src={icon ? `/icons/${icon}.png` : "/icons/Cat.png"}
+                        alt="Profile"
+                        width= {30}
+                        height={30}
+                        className=" max-w-[6vw] sm:w-1/4"
+                      />
+                      <div className="hidden sm:flex truncate  ">{user_id}</div>
+
+                    </div>
+      
+
+              {/* 2 button */}
+                <button className={RightButtonsStyling}
+                  onClick={handleLogout}
+                  disabled={loading || isLogoutClicked}
+                >
+                  Logout
+                </button>
+            </div>
+          ) : (
+            <div className="flex h-full min-w-[80%] gap-2 justify-end sm:min-w-[40%]">
+                <Link href="/login" className={RightButtonsStyling}>
+                  Login
+                </Link>
+
+                <Link href="/register" className={RightButtonsStyling}>
+                  Register
+                </Link>
+            </div>
           )}
         </div>
       </nav>

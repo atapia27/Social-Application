@@ -20,13 +20,13 @@ const Interactions: React.FC<InteractionsProps> = ({
 }) => {
   return (
     <div
-      className={`${isFullscreen ? "fixed bottom-0 left-0 right-0 p-4" : ""}`}
+      className={`${isFullscreen ? "fixed bottom-0 left-0 right-0 p-4" : " max-w-[40vw]"}`}
     >
       {showCommentForm && (
         <CommentForm video_id={video_id} isFullscreen={isFullscreen} />
       )}
 
-      <div className="mx-4 mb-4 mt-4 flex items-center justify-between pt-4 text-sm">
+      <div className=" mb-4 mt-4 flex items-center justify-between pt-4">
         <button className={VideoPostStyle.likeButton}>
           <FiThumbsUp className="mr-2" />
           Like
