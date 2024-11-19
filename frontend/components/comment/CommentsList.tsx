@@ -11,20 +11,16 @@ interface CommentsDisplayProps {
 // Define a consistent pattern of rotation angles
 const rotationPattern = [0.25, -0.5, 0.25, -0.25, 0.25, -0.5]
 
-const CommentsDisplay: React.FC<CommentsDisplayProps> = ({
+const CommentsList: React.FC<CommentsDisplayProps> = ({
   video_id,
   isFullscreen,
 }) => {
-  const { commentsByVideoId, fetchComments } = useCommentStore()
+  const { commentsByVideoId } = useCommentStore()
   const videoComments = commentsByVideoId[video_id] || {
     comments: [],
     loading: false,
     error: null,
   }
-
-  useEffect(() => {
-    fetchComments(video_id)
-  }, [fetchComments, video_id])
 
   // Show loading skeleton instead of "Loading comments..."
   if (videoComments.loading) return <CommentLoadingSkeleton />
@@ -34,7 +30,7 @@ const CommentsDisplay: React.FC<CommentsDisplayProps> = ({
 
   return (
     <div
-      className={`mt-4 pt-4 ${isFullscreen ? "max-h-[30vh] sm:max-h-[10vh]" : "max-h-[30vh]"} custom-scrollbar overflow-y-auto overflow-x-hidden`}
+      className={`mt-4 pt-4 ${isFullscreen ? " " : "max-h-[25vh]"} custom-scrollbar overflow-y-auto overflow-x-hidden`}
     >
       {videoComments.comments.map((comment, index) => (
         <div
@@ -60,4 +56,4 @@ const CommentsDisplay: React.FC<CommentsDisplayProps> = ({
   )
 }
 
-export default CommentsDisplay
+export default CommentsList

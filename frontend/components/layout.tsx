@@ -16,10 +16,10 @@ const Layout = ({ children }: LayoutProps) => {
   if (!mounted) return null // or a loading spinner, etc.
 
   return (
-    <div className="flex h-screen min-w-min flex-col">
+    <div className="flex h-screen w-screen max-w-screen flex-col">
       <Navbar />
       {/* Ensure main content takes the remaining height and is scrollable */}
-      <main className="no-scrollbar mt-2 flex-1 overflow-auto">{children}</main>
+      <main className="no-scrollbar overflow-scroll ">{children}</main>
     </div>
   )
 }

@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
   isFullscreen,
 }) => { return (
   <div>
-    <div
+    {/* <div
       className={
         isFullscreen ? VideoPostStyle.leftPinFS : VideoPostStyle.leftPin
       }
@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className={VideoPostStyle.pinBase(rightPinColor)}>
         <div className={VideoPostStyle.pinInner(rightPinColor)}></div>
       </div>
-    </div>
+    </div> */}
 
     <div className="flex justify-between gap-2 px-4 pb-6 pt-2 w-full">
       <h3 className={ThinRectButtonVariant.white}>{user_id}</h3>

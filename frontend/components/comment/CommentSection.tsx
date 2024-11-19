@@ -1,8 +1,8 @@
-// frontend\components\comment\CommentForm.tsx
+// frontend\components\comment\CommentSection.tsx
 import React, { useState } from "react"
 import useCommentStore from "../../zustand/store/commentStore"
 import { FaPencilAlt } from "react-icons/fa"
-import CommentsDisplay from "./CommentsDisplay"
+import CommentsList from "./CommentsList"
 import useAuthStore from "../../zustand/store/authStore"
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
   isFullscreen: boolean // Add this prop to handle fullscreen state
 }
 
-const CommentForm: React.FC<Props> = ({ video_id, isFullscreen }) => {
+const CommentSection: React.FC<Props> = ({ video_id, isFullscreen }) => {
   const [content, setContent] = useState("")
   const { postComment } = useCommentStore()
   const { user_id } = useAuthStore((state) => state) // Get user_id from auth store
@@ -32,9 +32,9 @@ const CommentForm: React.FC<Props> = ({ video_id, isFullscreen }) => {
   }
 
   return (
-    <div className="px-4">
+    <div className="px-4 justify-between h-full custom-scrollbar overflow-y-auto overflow-x-hidden">
       {video_id && (
-        <CommentsDisplay video_id={video_id} isFullscreen={isFullscreen} />
+        <CommentsList video_id={video_id} isFullscreen={isFullscreen} />
       )}{" "}
       {/* Include CommentsDisplay above the form */}
       <form
@@ -63,4 +63,4 @@ const CommentForm: React.FC<Props> = ({ video_id, isFullscreen }) => {
   )
 }
 
-export default CommentForm
+export default CommentSection

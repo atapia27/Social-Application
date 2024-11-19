@@ -29,7 +29,7 @@ const Home: NextPage = () => {
       className="min-h-screen bg-cover bg-fixed bg-center"
       style={{ backgroundImage: "url('/style/Classroom.png')" }}
     >
-      <main className="relative w-full rounded-lg bg-transparent p-4">
+      <main className="relative w-full rounded-lg bg-transparent py-4">
         {/* VideoFeed (Centered on the page) */}
         <div className="z-10 flex justify-center ">
           <VideoFeed />

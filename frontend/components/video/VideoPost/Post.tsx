@@ -38,7 +38,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [showVolume, setShowVolume] = useState(false)
   const [showSpeed, setShowSpeed] = useState(false)
-  const [showCommentForm, setShowCommentForm] = useState(false)
+  const [showCommentSection, setShowCommentSection] = useState(false)
   const playerContainerRef = useRef<HTMLDivElement>(null)
   const playerRef = useRef<ReactPlayer>(null)
 
@@ -64,28 +64,19 @@ const VideoPost: React.FC<VideoPostProps> = ({
     setIsFullscreen(!!document.fullscreenElement)
   })
 
-  const toggleCommentForm = () => {
-    setShowCommentForm((prev) => !prev)
-    if (!showCommentForm) fetchComments(video_id)
+  const toggleCommentSection = () => {
+    setShowCommentSection((prev) => !prev)
+    if (!showCommentSection) fetchComments(video_id)
   }
 
   return (
     <div
       ref={playerContainerRef}
-      className={`relative place-self-center border-8 border-[#8B4513] bg-[#D2B48C] ${
-        isFullscreen ? 'w-screen h-screen' : 'sm:w-3/5 w-6/7 h-full'
+      className={`flex  flex-col place-self-center border-8 border-[#8B4513] bg-[#D2B48C] ${
+        isFullscreen ? "h-screen max-h-screen" : "w-4/5 sm:w-3/5"
       }`}
     >
-      <Header
-        user_id={user_id}
-        current_user_id={current_user_id}
-        handleEditClick={handleEditClick}
-        leftPinColor={leftPinColor}
-        rightPinColor={rightPinColor}
-        isFullscreen={isFullscreen} // Pass the fullscreen state here
-      />
-
-      <div className="relative px-3">
+      <div className="flex flex-col h-full">
         {isEditing ? (
           <EditForm
             title={newTitle}
@@ -95,44 +86,59 @@ const VideoPost: React.FC<VideoPostProps> = ({
             handleSaveClick={handleSaveClick}
           />
         ) : (
-          <>
-            <div
-              className={`relative ${isFullscreen ? "mx-auto aspect-video w-[85vw] sm:w-auto sm:h-[50vh] " : "mx-auto aspect-video "}`}
-            >
-              <ReactPlayer
-                ref={playerRef}
-                url={video_url}
-                width="100%"
-                height="100%"
+          <div className={` flex flex-col justify-between max-h-[100vh] ${isFullscreen ? "h-full" : "h-full"}`}>
+            <div className="flex flex-col">
+               <Header
+                user_id={user_id}
+                current_user_id={current_user_id}
+                handleEditClick={handleEditClick}
+                leftPinColor={leftPinColor}
+                rightPinColor={rightPinColor}
+                isFullscreen={isFullscreen} // Pass the fullscreen state here
+              />
+
+              <div
+                className={`flex ${isFullscreen ? "mx-auto aspect-video w-[70vw] sm:h-auto" : "mx-auto aspect-video w-[95%]"}`}
+              >
+                <ReactPlayer
+                  ref={playerRef}
+                  url={video_url}
+                  width="100%"
+                  height="100%"
+                  volume={volume}
+                  playbackRate={playbackRate}
+                  controls={false}
+                />
+              </div>
+              <Controls
+                isFullscreen={isFullscreen}
+                handleFullscreenToggle={handleFullscreenToggle}
                 volume={volume}
+                setVolume={setVolume}
+                showVolume={showVolume}
+                setShowVolume={setShowVolume}
                 playbackRate={playbackRate}
-                controls={false}
+                setPlaybackRate={setPlaybackRate}
+                showSpeed={showSpeed}
+                setShowSpeed={setShowSpeed}
+              />
+              <h2 className="place-self-center text-center font-semibold text-gray-900 sm:w-2/5">
+                {title}
+              </h2>
+              <p className="mx-2 mt-2 w-full place-self-center border-b border-gray-500 pb-1 text-center text-xs font-medium text-gray-800">
+                {description}
+              </p>
+            </div>
+            <div className="flex flex-col align-bottom max-h-[50vh] overflow-y-auto">
+            <Interactions
+                video_id={video_id}
+                showCommentSection={showCommentSection}
+                toggleCommentSection={toggleCommentSection}
+                isFullscreen={isFullscreen} // Pass the fullscreen state here
               />
             </div>
-            <Controls
-              isFullscreen={isFullscreen}
-              handleFullscreenToggle={handleFullscreenToggle}
-              volume={volume}
-              setVolume={setVolume}
-              showVolume={showVolume}
-              setShowVolume={setShowVolume}
-              playbackRate={playbackRate}
-              setPlaybackRate={setPlaybackRate}
-              showSpeed={showSpeed}
-              setShowSpeed={setShowSpeed}
-            />
-          <h2 className=" place-self-center text-center font-semibold text-gray-900 sm:w-2/5 ">{title}</h2>
-          <p className="w-full pb-1 place-self-center text-center mx-2 mt-2 border-b border-gray-500 text-xs font-medium text-gray-800">
-              {description}
-          </p>
 
-            <Interactions
-              video_id={video_id}
-              showCommentForm={showCommentForm}
-              toggleCommentForm={toggleCommentForm}
-              isFullscreen={isFullscreen} // Pass the fullscreen state here
-            />
-          </>
+          </div>
         )}
       </div>
     </div>

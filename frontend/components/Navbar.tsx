@@ -19,7 +19,7 @@ const Navbar: FC = () => {
   const [isLogoutClicked, setIsLogoutClicked] = useState(false) // Local state to prevent multiple clicks
   const router = useRouter()
   const LeftButtonsStyling = twMerge(RectButtonVariant.violet, "w-4/5 sm:w-2/5")
-  const RightButtonsStyling = twMerge(RectButtonVariant.white, " h-full w-full text-xs sm:text-sm px-1 sm:justify-items-center sm:gap-1")
+  const RightButtonsStyling = twMerge(RectButtonVariant.white, " h-full w-full sm:w-auto text-xs sm:text-sm px-1 sm:justify-items-center sm:gap-1")
 
 
   useEffect(() => {

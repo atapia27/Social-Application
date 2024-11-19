@@ -7,7 +7,7 @@ const pinBase =
   "h-6 w-6 flex items-center justify-center rounded-none shadow-[4px_4px_0_0_rgba(0,0,0,0.25)]"
 const pinInnerBase = "h-3 w-3 rounded-none border-[1px]"
 const buttonBase =
-  "flex items-center rounded-none truncate border-4 px-4 py-2 text-gray-700 shadow-[8px_8px_0_rgba(0,0,0,0.25)] transition-all duration-150 hover:text-gray-900 active:translate-x-[4px] active:translate-y-[4px] active:shadow-[8px_8px_0_rgba(0,0,0,0)]"
+  "flex items-center rounded-none truncate border-4 px-4 py-1 text-gray-700 shadow-[8px_8px_0_rgba(0,0,0,0.25)] transition-all duration-150 hover:text-gray-900 active:translate-x-[4px] active:translate-y-[4px] active:shadow-[8px_8px_0_rgba(0,0,0,0)]"
 
 // Export reusable styles
 export const VideoPostStyle = {
