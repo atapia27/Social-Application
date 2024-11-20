@@ -32,14 +32,18 @@ const CommentSection: React.FC<Props> = ({ video_id, isFullscreen }) => {
   }
 
   return (
-    <div className="px-4 justify-between h-full custom-scrollbar overflow-y-auto overflow-x-hidden">
+    <div className="px-4 justify-between h-full custom-scrollbar overflow-y-scroll overflow-x-hidden">
+      
+      
       {video_id && (
         <CommentsList video_id={video_id} isFullscreen={isFullscreen} />
       )}{" "}
       {/* Include CommentsDisplay above the form */}
+
+
       <form
         onSubmit={handleSubmit}
-        className=" mt-4 flex items-center gap-2"
+        className=" mt-4 flex items-center gap-2 "
       >
         <textarea
           value={content}
