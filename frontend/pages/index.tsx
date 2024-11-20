@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-fixed bg-center"
+      className=" bg-cover bg-fixed "
       style={{ backgroundImage: "url('/style/Classroom.png')" }}
     >
       <main className="relative w-full rounded-lg bg-transparent py-4">
