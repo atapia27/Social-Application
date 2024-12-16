@@ -1,5 +1,5 @@
 // frontend/components/Navbar.tsx
-import { FC, useEffect, useState } from "react"
+import { FC, useEffect, useState, useCallback  } from "react"
 import Link from "next/link"
 import { FiHome, FiUsers, FiBell, FiMessageCircle } from "react-icons/fi"
 import Image from "next/image"
@@ -13,6 +13,7 @@ import {
 } from "./helpers/buttons"
 import { useRouter } from "next/router"
 
+
 const Navbar: FC = () => {
   const { user_id, icon, logged_in, logout, loading } = useAuthStore()
   const [mounted, setMounted] = useState(false)
@@ -22,26 +23,29 @@ const Navbar: FC = () => {
   const RightButtonsStyling = twMerge(RectButtonVariant.white, " h-full w-full sm:w-auto text-xs sm:text-sm px-1 sm:justify-items-center sm:gap-1")
 
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+ // Set `mounted` to true after component mounts
+ useEffect(() => {
+  setMounted(true);
+}, []);
 
-  useEffect(() => {
-    // Reset the `isLogoutClicked` state after logout completes and user is logged out
-    if (!logged_in && isLogoutClicked) {
-      setIsLogoutClicked(false)
-      router.push("/login") // Redirect to login page after successful logout
-    }
-  }, [logged_in, isLogoutClicked, router])
-
-  const handleLogout = () => {
-    if (!loading && !isLogoutClicked) {
-      setIsLogoutClicked(true) // Prevent further logout clicks
-      logout()
-    }
+// Handle logout completion and redirection
+useEffect(() => {
+  if (!logged_in && isLogoutClicked) {
+    setIsLogoutClicked(false); // Reset state after logout
+    router.push("/login"); // Redirect to login page
   }
+}, [logged_in, isLogoutClicked, router.push]);
 
-  if (!mounted) return null
+// Handle logout click
+const handleLogout = useCallback(() => {
+  if (!loading && !isLogoutClicked) {
+    setIsLogoutClicked(true); // Prevent further clicks
+    logout();
+  }
+}, [loading, isLogoutClicked, logout]);
+
+// Prevent rendering until mounted
+if (!mounted) return null;
 
   return (
     <>

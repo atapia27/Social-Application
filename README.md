@@ -46,6 +46,7 @@ cd frontend/ && npm run dev
 
 ```bash
 cd backend/ && pip install -r requirements.txt
+cd ../
 uvicorn backend.main:app --reload
 ```
 
