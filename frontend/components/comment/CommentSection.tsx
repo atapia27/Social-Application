@@ -1,49 +1,48 @@
-// frontend\components\comment\CommentSection.tsx
-import React, { useState } from "react"
-import useCommentStore from "../../zustand/store/commentStore"
-import { FaPencilAlt } from "react-icons/fa"
-import CommentsList from "./CommentsList"
-import useAuthStore from "../../zustand/store/authStore"
+import React, { useState } from "react";
+import useCommentStore from "../../zustand/store/commentStore";
+import { FaPencilAlt } from "react-icons/fa";
+import CommentsList from "./CommentsList";
+import useAuthStore from "../../zustand/store/authStore";
 
 interface Props {
-  video_id: string // ID of the video for which the comment is being submitted
-  isFullscreen: boolean // Add this prop to handle fullscreen state
+  video_id: string; // ID of the video for which the comment is being submitted
+  isFullscreen: boolean; // Add this prop to handle fullscreen state
 }
 
 const CommentSection: React.FC<Props> = ({ video_id, isFullscreen }) => {
-  const [content, setContent] = useState("")
-  const { postComment } = useCommentStore()
-  const { user_id } = useAuthStore((state) => state) // Get user_id from auth store
+  const [content, setContent] = useState("");
+  const { postComment } = useCommentStore();
+  const { user_id } = useAuthStore((state) => state); // Get user_id from auth store
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!content.trim()) return // Do not submit empty comments
+    e.preventDefault();
+    if (!content.trim()) return; // Do not submit empty comments
 
     try {
       // Dispatch an action to create the comment
-      await postComment(video_id, content.trim(), user_id!) // Correct user_id usage
-      console.log(`Comment posted successfully for video_id: ${video_id}`)
+      await postComment(video_id, content.trim(), user_id!); // Correct user_id usage
+      console.log(`Comment posted successfully for video_id: ${video_id}`);
       // Clear the input field after submission
-      setContent("")
+      setContent("");
     } catch (error) {
-      console.error("Error creating comment:", error)
+      console.error("Error creating comment:", error);
       // Handle error (e.g., show error message to user)
     }
-  }
+  };
 
   return (
-    <div className="px-4 justify-between h-full custom-scrollbar overflow-y-scroll overflow-x-hidden">
-      
-      
+    <div className="relative flex flex-col h-full overflow-hidden">
+      {/* CommentsList container - scrollable */}
       {video_id && (
-        <CommentsList video_id={video_id} isFullscreen={isFullscreen} />
-      )}{" "}
-      {/* Include CommentsDisplay above the form */}
-
-
+        <div className="flex-1 overflow-y-scroll custom-scrollbar px-4">
+          <CommentsList video_id={video_id} isFullscreen={isFullscreen} />
+        </div>
+      )}
+      
+      {/* Sticky form at the bottom */}
       <form
         onSubmit={handleSubmit}
-        className=" mt-4 flex items-center gap-2 "
+        className="sticky bottom-0 px-4 py-2 flex items-center gap-2"
       >
         <textarea
           value={content}
@@ -64,7 +63,7 @@ const CommentSection: React.FC<Props> = ({ video_id, isFullscreen }) => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CommentSection
+export default CommentSection;

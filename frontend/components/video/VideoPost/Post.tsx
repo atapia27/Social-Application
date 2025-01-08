@@ -38,7 +38,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [showVolume, setShowVolume] = useState(false)
   const [showSpeed, setShowSpeed] = useState(false)
-  const [showCommentSection, setShowCommentSection] = useState(false)
+  const [showCommentSection, setShowCommentSection] = useState(true)
   const playerContainerRef = useRef<HTMLDivElement>(null)
   const playerRef = useRef<ReactPlayer>(null)
 
@@ -125,7 +125,7 @@ const VideoPost: React.FC<VideoPostProps> = ({
               <h2 className="place-self-center text-center font-semibold text-gray-900 sm:w-2/5">
                 {title}
               </h2>
-              <p className="mx-2 mt-2 w-full place-self-center border-b border-gray-500 pb-1 text-center text-xs font-medium text-gray-800">
+              <p className="mx-2 mt-2 w-full place-self-center border-b-2 border-[#8B4513] pb-1 text-center text-xs font-medium text-gray-800">
                 {description}
               </p>
             </div>
