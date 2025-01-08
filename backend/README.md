@@ -1,9 +1,8 @@
 Install requirements.txt
 
 ```bash
-pip freeze | xargs pip uninstall -y
-
-.venv\Scripts\activate
+python -m venv venv
+source venv/Scripts/activate
 pip install -r backend/requirements.txt
 ```
 

@@ -30,7 +30,7 @@ const CommentsList: React.FC<CommentsDisplayProps> = ({
 
   return (
     <div
-      className={`mt-4 pt-4 ${isFullscreen ? " " : "max-h-[25vh]"} custom-scrollbar overflow-y-hidden overflow-x-hidden`}
+      className={`mt-4 pt-4 custom-scrollbar overflow-y-hidden overflow-x-hidden`}
     >
       {videoComments.comments.map((comment, index) => (
         <div
